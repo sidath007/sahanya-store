@@ -1,0 +1,565 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sahanya Store | Admin Panel</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<!-- ================= LOADING ================= -->
+
+<div id="adminLoader">
+
+    <div class="loader-orbit orbit-one"></div>
+    <div class="loader-orbit orbit-two"></div>
+
+    <div class="admin-loader-content">
+
+        <div class="loader-brand">SAHANYA</div>
+        <div class="loader-admin">ADMIN CONTROL CENTER</div>
+
+        <div class="loader-core">
+            <div class="loader-core-inner">S</div>
+        </div>
+
+        <div class="loader-progress">
+            <div id="adminLoaderBar"></div>
+        </div>
+
+        <div class="loader-bottom">
+            <span>
+                <i></i>
+                SYSTEM INITIALIZING
+            </span>
+
+            <strong id="adminLoaderPercent">0%</strong>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ================= MOBILE TOP ================= -->
+
+<header class="mobile-top">
+
+    <button class="menu-btn" onclick="toggleSidebar()">
+        ☰
+    </button>
+
+    <div class="mobile-logo">
+        SAHANYA <span>ADMIN</span>
+    </div>
+
+</header>
+
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-logo">
+        <div>SAHANYA</div>
+        <span>ADMIN CONTROL</span>
+    </div>
+
+    <nav class="sidebar-nav">
+
+        <button class="side-link active" onclick="showSection('dashboard', this)">
+            <span>⌂</span>
+            Dashboard
+        </button>
+
+        <button class="side-link" onclick="showSection('accounts', this)">
+            <span>◈</span>
+            Accounts
+        </button>
+
+        <button class="side-link" onclick="showSection('featured', this)">
+            <span>★</span>
+            Featured
+        </button>
+
+        <button class="side-link" onclick="showSection('settings', this)">
+            <span>⚙</span>
+            Settings
+        </button>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+        <a href="index.html" class="side-home">
+            ← Back to Store
+        </a>
+
+        <button onclick="logout()" class="side-logout">
+            Logout
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="admin-main">
+
+    <!-- DASHBOARD -->
+
+    <section id="dashboard" class="admin-section active-section">
+
+        <div class="page-heading">
+
+            <div>
+                <span>CONTROL CENTER</span>
+
+                <h1>
+                    Admin <b>Dashboard</b>
+                </h1>
+
+                <p>
+                    Manage your Sahanya gaming store.
+                </p>
+            </div>
+
+            <button class="add-main-btn" onclick="openAccountForm()">
+                + Add Account
+            </button>
+
+        </div>
+
+
+        <!-- STATS -->
+
+        <div class="stats">
+
+            <div class="stat-card">
+                <small>TOTAL ACCOUNTS</small>
+                <strong id="totalAccounts">0</strong>
+                <span>Inventory</span>
+            </div>
+
+            <div class="stat-card">
+                <small>AVAILABLE</small>
+                <strong id="availableAccounts">0</strong>
+                <span>For Sale</span>
+            </div>
+
+            <div class="stat-card">
+                <small>SOLD</small>
+                <strong id="soldAccounts">0</strong>
+                <span>Sold</span>
+            </div>
+
+            <div class="stat-card">
+                <small>FEATURED</small>
+                <strong id="featuredAccounts">0</strong>
+                <span>Featured</span>
+            </div>
+
+        </div>
+
+
+        <!-- QUICK ACTIONS -->
+
+        <div class="panel quick-panel">
+
+            <div class="section-title">
+                <span>QUICK ACTIONS</span>
+                <h2>Store Management</h2>
+            </div>
+
+            <div class="quick-grid">
+
+                <button onclick="openAccountForm()" class="quick-card">
+                    <b>＋</b>
+                    <strong>Add Account</strong>
+                    <small>Create new listing</small>
+                </button>
+
+                <button onclick="showSection('accounts')" class="quick-card">
+                    <b>◈</b>
+                    <strong>Accounts</strong>
+                    <small>Manage inventory</small>
+                </button>
+
+                <button onclick="showSection('featured')" class="quick-card">
+                    <b>★</b>
+                    <strong>Featured</strong>
+                    <small>Premium listings</small>
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACCOUNTS -->
+
+    <section id="accounts" class="admin-section">
+
+        <div class="page-heading">
+
+            <div>
+                <span>INVENTORY</span>
+
+                <h1>
+                    Gaming <b>Accounts</b>
+                </h1>
+
+                <p>
+                    Edit, update and manage your accounts.
+                </p>
+            </div>
+
+            <button class="add-main-btn" onclick="openAccountForm()">
+                + Add Account
+            </button>
+
+        </div>
+
+
+        <section class="panel">
+
+            <div class="list-header">
+
+                <div>
+                    <span>YOUR INVENTORY</span>
+                    <h2>All Accounts</h2>
+                </div>
+
+                <input
+                    type="text"
+                    id="adminSearch"
+                    placeholder="Search accounts..."
+                >
+
+            </div>
+
+            <div id="adminAccounts" class="admin-accounts"></div>
+
+        </section>
+
+    </section>
+
+
+    <!-- FEATURED -->
+
+    <section id="featured" class="admin-section">
+
+        <div class="page-heading">
+
+            <div>
+                <span>PREMIUM LISTINGS</span>
+
+                <h1>
+                    Featured <b>Accounts</b>
+                </h1>
+
+                <p>
+                    Accounts marked as featured.
+                </p>
+            </div>
+
+        </div>
+
+        <section class="panel">
+
+            <div id="featuredAccountsList" class="admin-accounts"></div>
+
+        </section>
+
+    </section>
+
+
+    <!-- SETTINGS -->
+
+    <section id="settings" class="admin-section">
+
+        <div class="page-heading">
+
+            <div>
+                <span>SYSTEM</span>
+
+                <h1>
+                    Admin <b>Settings</b>
+                </h1>
+
+                <p>
+                    Store administration settings.
+                </p>
+            </div>
+
+        </div>
+
+        <section class="panel settings-panel">
+
+            <div class="setting-item">
+                <div>
+                    <strong>Store Name</strong>
+                    <small>Sahanya Store</small>
+                </div>
+
+                <span class="setting-status">ACTIVE</span>
+            </div>
+
+            <div class="setting-item">
+                <div>
+                    <strong>Storage System</strong>
+                    <small>Browser LocalStorage</small>
+                </div>
+
+                <span class="setting-status">ACTIVE</span>
+            </div>
+
+            <div class="setting-item">
+                <div>
+                    <strong>Frontend Mode</strong>
+                    <small>No backend connected</small>
+                </div>
+
+                <span class="setting-status">LOCAL</span>
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <!-- ACCOUNT FORM -->
+
+    <section id="accountForm" class="panel form-panel">
+
+        <div class="panel-title">
+
+            <div>
+                <span>ACCOUNT MANAGEMENT</span>
+                <h2 id="formTitle">Add New Account</h2>
+            </div>
+
+            <button onclick="closeAccountForm()" class="close-form">
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="accountFormElement">
+
+            <input type="hidden" id="editId">
+
+
+            <div class="image-upload">
+
+                <div class="image-preview" id="imagePreview">
+                    <span>ACCOUNT IMAGE</span>
+                </div>
+
+                <label class="upload-btn">
+                    Upload / Replace Image
+
+                    <input
+                        type="file"
+                        id="accountImage"
+                        accept="image/*"
+                        hidden
+                    >
+                </label>
+
+                <button
+                    type="button"
+                    class="remove-image"
+                    onclick="removeImage()"
+                >
+                    Remove Image
+                </button>
+
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="field">
+                    <label>Account Name</label>
+                    <input
+                        id="accountName"
+                        type="text"
+                        placeholder="Legendary Account"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label>Game</label>
+                    <input
+                        id="accountGame"
+                        type="text"
+                        value="FREE FIRE"
+                    >
+                </div>
+
+                <div class="field">
+                    <label>Server</label>
+                    <input
+                        id="accountServer"
+                        type="text"
+                        placeholder="SG"
+                    >
+                </div>
+
+                <div class="field">
+                    <label>Level</label>
+                    <input
+                        id="accountLevel"
+                        type="number"
+                        placeholder="84"
+                    >
+                </div>
+
+                <div class="field">
+                    <label>Evo Guns</label>
+                    <input
+                        id="accountEvo"
+                        type="number"
+                        placeholder="11"
+                    >
+                </div>
+
+                <div class="field">
+                    <label>Emotes</label>
+                    <input
+                        id="accountEmotes"
+                        type="number"
+                        placeholder="112"
+                    >
+                </div>
+
+                <div class="field">
+                    <label>Bundles</label>
+                    <input
+                        id="accountBundles"
+                        type="text"
+                        placeholder="708+"
+                    >
+                </div>
+
+                <div class="field">
+                    <label>Price (Rs.)</label>
+                    <input
+                        id="accountPrice"
+                        type="number"
+                        placeholder="25000"
+                        required
+                    >
+                </div>
+
+            </div>
+
+
+            <div class="field full">
+
+                <label>Description</label>
+
+                <textarea
+                    id="accountDescription"
+                    rows="4"
+                    placeholder="Premium account with rare bundles..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="settings-row">
+
+                <label class="switch-label">
+
+                    <input
+                        type="checkbox"
+                        id="accountFeatured"
+                    >
+
+                    <span></span>
+
+                    Featured Account
+
+                </label>
+
+
+                <div class="status-select">
+
+                    <label>Status</label>
+
+                    <select id="accountStatus">
+
+                        <option value="available">
+                            Available
+                        </option>
+
+                        <option value="sold">
+                            Sold
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-buttons">
+
+                <button
+                    type="button"
+                    onclick="closeAccountForm()"
+                    class="cancel-btn"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="save-btn"
+                >
+                    Save Account
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+</main>
+
+
+<script src="admin.js"></script>
+
+<div id="adminToast" class="admin-toast">
+    <div class="toast-icon" id="toastIcon">✓</div>
+
+    <div class="toast-content">
+        <strong id="toastTitle">SUCCESS</strong>
+        <span id="toastMessage">Action completed successfully.</span>
+    </div>
+
+    <div class="toast-progress"></div>
+</div>
+
+</body>
+</html>
+

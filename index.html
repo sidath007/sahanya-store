@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sahanya Store | Gaming Accounts</title>
+
+    <!-- ================= GOOGLE FONTS ================= -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- ================= MAIN CSS ================= -->
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     LOADING SCREEN
+========================================================= -->
+
+<div id="loader">
+
+    <div class="loader-glow"></div>
+
+    <div class="loader-content">
+
+        <div class="loader-logo">
+            SAHANYA
+        </div>
+
+        <div class="loader-subtitle">
+            GAMING STORE
+        </div>
+
+        <div class="loader-line">
+            <span></span>
+        </div>
+
+        <div class="loader-status">
+            <span class="loader-dot"></span>
+            LOADING EXPERIENCE
+        </div>
+
+        <div
+            class="loader-percent"
+            id="loaderPercent"
+        >
+            0%
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     BACKGROUND VIDEO
+========================================================= -->
+
+<div class="background">
+
+    <video
+        class="background-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+    >
+
+        <source
+            src="video/black-abstract-tiles.3840x2160.mp4"
+            type="video/mp4"
+        >
+
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="background-grid"></div>
+
+</div>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header class="navbar glass">
+
+    <!-- LOGO -->
+
+    <a href="#home" class="logo">
+
+        <span>SAHANYA</span>
+
+        <small>STORE</small>
+
+    </a>
+
+
+    <!-- NAVIGATION -->
+
+    <nav id="navMenu">
+
+        <a href="#home" class="active">
+            Home
+        </a>
+
+        <a href="#accounts">
+            Accounts
+        </a>
+
+        <a href="#featured">
+            Featured
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+
+        <!-- MOBILE ADMIN BUTTON -->
+
+        <button
+            class="mobile-admin-btn"
+            onclick="openAdmin(); toggleMenu();"
+            type="button"
+        >
+
+            <span>⚡</span>
+
+            Admin
+
+        </button>
+
+    </nav>
+
+
+    <!-- DESKTOP ADMIN BUTTON -->
+
+    <button
+        class="admin-btn"
+        onclick="openAdmin()"
+        type="button"
+    >
+
+        <span>⚡</span>
+
+        Admin
+
+    </button>
+
+
+    <!-- MOBILE MENU BUTTON -->
+
+    <button
+        class="menu-btn"
+        onclick="toggleMenu()"
+        type="button"
+        aria-label="Open menu"
+    >
+
+        ☰
+
+    </button>
+
+</header>
+
+
+<!-- =========================================================
+     MAIN CONTENT
+========================================================= -->
+
+<main id="home">
+
+
+<!-- =========================================================
+     HERO SECTION
+========================================================= -->
+
+<section class="hero">
+
+    <!-- HERO TEXT -->
+
+    <div class="hero-content">
+
+        <!-- HERO BADGE -->
+
+        <div class="hero-badge">
+
+            <span></span>
+
+            PREMIUM GAMING MARKET
+
+        </div>
+
+
+        <!-- HERO TITLE -->
+
+        <h1>
+
+            YOUR NEXT
+
+            <strong>
+                GAMING ACCOUNT
+            </strong>
+
+            <em>
+                STARTS HERE.
+            </em>
+
+        </h1>
+
+
+        <!-- HERO DESCRIPTION -->
+
+        <p>
+
+            Discover premium gaming accounts with verified
+            details, powerful collections and instant access.
+
+        </p>
+
+
+        <!-- HERO BUTTONS -->
+
+        <div class="hero-buttons">
+
+            <a
+                href="#accounts"
+                class="primary-btn"
+            >
+
+                Explore Accounts
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+
+            <a
+                href="#featured"
+                class="secondary-btn"
+            >
+
+                Featured
+
+            </a>
+
+        </div>
+
+
+        <!-- HERO STATS -->
+
+        <div class="hero-stats">
+
+            <div>
+
+                <strong>
+                    100+
+                </strong>
+
+                <span>
+                    Accounts
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    24/7
+                </strong>
+
+                <span>
+                    Support
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    100%
+                </strong>
+
+                <span>
+                    Verified
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         3D HERO CHARACTER
+    ====================================================== -->
+
+    <div class="hero-3d">
+
+        <!-- Yellow Glow -->
+
+        <div class="hero-3d-glow"></div>
+
+
+        <!-- THREE.JS CANVAS -->
+
+        <div
+            id="character3D"
+            class="character-3d"
+        ></div>
+
+
+        <!-- 3D LABEL -->
+
+        <div class="hero-3d-label">
+
+            <span></span>
+
+            PREMIUM COLLECTION
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ACCOUNTS SECTION
+========================================================= -->
+
+<section
+    id="accounts"
+    class="section"
+>
+
+
+    <!-- SECTION HEADING -->
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                COLLECTION
+            </span>
+
+            <h2>
+
+                Available
+
+                <span>
+                    Accounts
+                </span>
+
+            </h2>
+
+            <p>
+                Find your perfect gaming account.
+            </p>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box glass">
+
+            <span>
+                ⌕
+            </span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search accounts..."
+                autocomplete="off"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- ACCOUNT GRID -->
+
+    <div
+        class="account-grid"
+        id="accountGrid"
+    >
+
+
+        <!-- =================================================
+             DEFAULT ACCOUNT #001
+        ================================================== -->
+
+        <article class="account-card glass">
+
+            <div class="account-image">
+
+                <img
+                    src="images/account1.jpg"
+                    alt="Gaming Account"
+                >
+
+                <div class="status available">
+                    AVAILABLE
+                </div>
+
+                <div class="account-id">
+                    #001
+                </div>
+
+            </div>
+
+
+            <div class="account-content">
+
+                <div class="account-top">
+
+                    <h3>
+                        Legendary Account
+                    </h3>
+
+                    <span class="game">
+                        FREE FIRE
+                    </span>
+
+                </div>
+
+
+                <p class="account-description">
+
+                    Premium account with rare bundles,
+                    evo guns and exclusive items.
+
+                </p>
+
+
+                <div class="account-info">
+
+                    <div>
+
+                        <span>
+                            LEVEL
+                        </span>
+
+                        <strong>
+                            84
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            EVO GUNS
+                        </span>
+
+                        <strong>
+                            11
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            EMOTES
+                        </span>
+
+                        <strong>
+                            112
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            BUNDLES
+                        </span>
+
+                        <strong>
+                            708+
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="account-bottom">
+
+                    <div class="price">
+
+                        <small>
+                            PRICE
+                        </small>
+
+                        <strong>
+                            Rs. 25,000
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="buy-btn"
+                        type="button"
+                        onclick="buyAccount('Legendary Account')"
+                    >
+
+                        Buy Now →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             DEFAULT ACCOUNT #002
+        ================================================== -->
+
+        <article class="account-card glass">
+
+            <div class="account-image">
+
+                <img
+                    src="images/account1.jpg"
+                    alt="Gaming Account"
+                >
+
+                <div class="status available">
+                    AVAILABLE
+                </div>
+
+                <div class="account-id">
+                    #002
+                </div>
+
+            </div>
+
+
+            <div class="account-content">
+
+                <div class="account-top">
+
+                    <h3>
+                        Evo Collection
+                    </h3>
+
+                    <span class="game">
+                        FREE FIRE
+                    </span>
+
+                </div>
+
+
+                <p class="account-description">
+
+                    Strong collection with multiple
+                    legendary weapons and bundles.
+
+                </p>
+
+
+                <div class="account-info">
+
+                    <div>
+
+                        <span>
+                            LEVEL
+                        </span>
+
+                        <strong>
+                            72
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            EVO GUNS
+                        </span>
+
+                        <strong>
+                            8
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            EMOTES
+                        </span>
+
+                        <strong>
+                            95
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            BUNDLES
+                        </span>
+
+                        <strong>
+                            500+
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="account-bottom">
+
+                    <div class="price">
+
+                        <small>
+                            PRICE
+                        </small>
+
+                        <strong>
+                            Rs. 18,500
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="buy-btn"
+                        type="button"
+                        onclick="buyAccount('Evo Collection')"
+                    >
+
+                        Buy Now →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             DEFAULT ACCOUNT #003
+        ================================================== -->
+
+        <article class="account-card glass">
+
+            <div class="account-image">
+
+                <img
+                    src="images/account1.jpg"
+                    alt="Gaming Account"
+                >
+
+                <div class="status sold">
+                    SOLD
+                </div>
+
+                <div class="account-id">
+                    #003
+                </div>
+
+            </div>
+
+
+            <div class="account-content">
+
+                <div class="account-top">
+
+                    <h3>
+                        Rare Bundle Account
+                    </h3>
+
+                    <span class="game">
+                        FREE FIRE
+                    </span>
+
+                </div>
+
+
+                <p class="account-description">
+
+                    Rare bundle collection with
+                    exclusive old-school items.
+
+                </p>
+
+
+                <div class="account-info">
+
+                    <div>
+
+                        <span>
+                            LEVEL
+                        </span>
+
+                        <strong>
+                            90
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            EVO GUNS
+                        </span>
+
+                        <strong>
+                            14
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            EMOTES
+                        </span>
+
+                        <strong>
+                            130
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            BUNDLES
+                        </span>
+
+                        <strong>
+                            800+
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="account-bottom">
+
+                    <div class="price">
+
+                        <small>
+                            PRICE
+                        </small>
+
+                        <strong>
+                            Rs. 30,000
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="buy-btn disabled"
+                        type="button"
+                        disabled
+                    >
+
+                        Sold Out
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FEATURED SECTION
+========================================================= -->
+
+<section
+    id="featured"
+    class="featured section"
+>
+
+    <div class="featured-box glass">
+
+
+        <div class="featured-content">
+
+            <span class="section-label">
+                FEATURED ACCOUNT
+            </span>
+
+
+            <h2>
+
+                BUILT FOR
+
+                <span>
+                    LEGENDS.
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                Explore our premium featured collection
+                and find accounts packed with rare items.
+
+            </p>
+
+
+            <a
+                href="#accounts"
+                class="primary-btn"
+            >
+
+                View Collection →
+
+            </a>
+
+        </div>
+
+
+        <div class="featured-glow"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT SECTION
+========================================================= -->
+
+<section
+    id="contact"
+    class="section contact"
+>
+
+    <div class="contact-box glass">
+
+        <span class="section-label">
+            GET IN TOUCH
+        </span>
+
+
+        <h2>
+
+            Need
+
+            <span>
+                Help?
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Contact us for account details, purchasing
+            information or support.
+
+        </p>
+
+
+        <button
+            class="primary-btn"
+            type="button"
+            onclick="contactUs()"
+        >
+
+            Contact Us →
+
+        </button>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="footer-logo">
+
+        SAHANYA
+
+        <span>
+            STORE
+        </span>
+
+    </div>
+
+
+    <p>
+        Premium Gaming Account Marketplace
+    </p>
+
+
+    <small>
+        © 2026 Sahanya Store. All rights reserved.
+    </small>
+
+</footer>
+
+
+<!-- =========================================================
+     ADMIN LOGIN MODAL
+========================================================= -->
+
+<div
+    id="adminModal"
+    class="modal"
+>
+
+    <div class="modal-box glass">
+
+
+        <!-- CLOSE -->
+
+        <button
+            class="close-btn"
+            onclick="closeAdmin()"
+            type="button"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+
+        <!-- TITLE -->
+
+        <span class="section-label">
+            ADMIN ACCESS
+        </span>
+
+
+        <h2>
+
+            Welcome
+
+            <span>
+                Back.
+            </span>
+
+        </h2>
+
+
+        <!-- USERNAME -->
+
+        <input
+            type="text"
+            id="adminUsername"
+            placeholder="Username"
+            autocomplete="username"
+        >
+
+
+        <!-- PASSWORD -->
+
+        <input
+            type="password"
+            id="adminPassword"
+            placeholder="Password"
+            autocomplete="current-password"
+        >
+
+
+        <!-- LOGIN -->
+
+        <button
+            class="primary-btn login-btn"
+            onclick="adminLogin()"
+            type="button"
+        >
+
+            Login →
+
+        </button>
+
+
+        <!-- DEMO INFO -->
+
+        <p class="demo-text">
+            Admin access required.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     THREE.JS
+     
+     IMPORTANT:
+     This version matches the GLTFLoader used
+     in script.js.
+========================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+
+<!-- =========================================================
+     MAIN JAVASCRIPT
+========================================================= -->
+
+<script src="script.js"></script>
+
+
+<!-- =========================================================
+     LOGIN SUCCESS POPUP
+========================================================= -->
+
+<div
+    id="successNotification"
+    class="success-popup"
+>
+
+    <div class="success-popup-box">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <div class="success-content">
+
+            <h3>
+                Login Successful
+            </h3>
+
+            <p>
+                Welcome back, Sahanya Admin.
+            </p>
+
+        </div>
+
+        <div class="success-loader">
+
+            <span></span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>
